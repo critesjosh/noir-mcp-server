@@ -2,16 +2,38 @@
 
 MCP server for Noir development — clones and searches Noir documentation, standard library, examples, and community libraries.
 
-## Quick Start
+## Install
+
+### Claude Code
 
 ```bash
-npm install
-npm run build
+claude mcp add noir-mcp -- npx noir-mcp-server
 ```
 
-### Configure in Claude Code
+### Claude Desktop / Cursor / Windsurf
 
-Add to your `.mcp.json`:
+Add to your MCP config file (e.g. `~/.claude/mcp.json`, `claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "noir": {
+      "command": "npx",
+      "args": ["noir-mcp-server"]
+    }
+  }
+}
+```
+
+### From source
+
+```bash
+git clone https://github.com/critesjosh/noir-mcp-server.git
+cd noir-mcp-server
+npm install && npm run build
+```
+
+Then point your MCP config to the built file:
 
 ```json
 {

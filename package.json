@@ -1,0 +1,46 @@
+{
+  "name": "noir-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Noir development - clones and searches Noir documentation, stdlib, and examples",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "noir-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "noir",
+    "mcp",
+    "model-context-protocol",
+    "zero-knowledge",
+    "zk-proofs",
+    "circuits"
+  ],
+  "author": "critesjosh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/critesjosh/noir-mcp-server"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "simple-git": "^3.27.0",
+    "globby": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}

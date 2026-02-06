@@ -1,0 +1,73 @@
+# noir-mcp-server
+
+MCP server for Noir development — clones and searches Noir documentation, standard library, examples, and community libraries.
+
+## Quick Start
+
+```bash
+npm install
+npm run build
+```
+
+### Configure in Claude Code
+
+Add to your `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "noir": {
+      "command": "node",
+      "args": ["/path/to/noir-mcp-server/dist/index.js"]
+    }
+  }
+}
+```
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `noir_sync_repos` | Clone/update repos. Default: core only. Add `categories: ["libraries"]` for packages. |
+| `noir_status` | Check repo clone status |
+| `noir_search_code` | Search `.nr` files across repos |
+| `noir_search_docs` | Search Noir documentation |
+| `noir_search_stdlib` | Search standard library |
+| `noir_list_examples` | List available examples |
+| `noir_read_example` | Read example source |
+| `noir_read_file` | Read any file from repos |
+| `noir_list_libraries` | List libraries with descriptions & clone status |
+
+## Repository Categories
+
+**Core** (synced by default):
+- `noir` — Compiler, stdlib, tooling, docs
+- `noir-examples` — Official example circuits
+
+**Libraries** (sync with `categories: ["libraries"]`):
+- `noir-bignum` — Big integer arithmetic
+- `noir_bigcurve` — Elliptic curve operations
+- `noir_json_parser` — JSON parsing (RFC 8259)
+- `noir_string_search` — Substring search/proof
+- `noir_sort` — Array sorting
+- `sparse_array` — Sparse array implementation
+- `zk-kit.noir` — Merkle trees, ECDH, and more
+
+**Reference** (sync with `categories: ["reference"]`):
+- `awesome-noir` — Curated ecosystem index
+
+## Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `NOIR_DEFAULT_VERSION` | `v1.0.0-beta.3` | Noir version tag for the main repo |
+| `NOIR_MCP_REPOS_DIR` | `~/.noir-mcp` | Base directory for cloned repos |
+
+## Development
+
+```bash
+npm run dev    # Watch mode
+npm run build  # Build
+npm start      # Run server
+node test.mjs  # Run tests
+```

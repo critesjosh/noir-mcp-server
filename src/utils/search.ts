@@ -70,7 +70,7 @@ export function searchCode(
       .join(" ");
 
     const result = execSync(
-      `rg ${rgFlags} "${escapeRegex(query)}" "${searchPath}"`,
+      `rg ${rgFlags} "${escapeShell(query)}" "${searchPath}"`,
       {
         encoding: "utf-8",
         maxBuffer: 10 * 1024 * 1024,
@@ -235,8 +235,12 @@ export function findExample(name: string): FileInfo | null {
 
 // --- Helper functions ---
 
-function escapeRegex(str: string): string {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/**
+ * Escape a string for safe use inside double quotes in a shell command.
+ * Preserves regex syntax (|, *, +, etc.) while preventing shell injection.
+ */
+function escapeShell(str: string): string {
+  return str.replace(/["$`\\!]/g, "\\$&");
 }
 
 function parseRgOutput(output: string, maxResults: number): SearchResult[] {
@@ -282,7 +286,7 @@ function manualSearch(
     });
 
     const searchRegex = new RegExp(
-      escapeRegex(query),
+      query,
       caseSensitive ? "g" : "gi"
     );
 

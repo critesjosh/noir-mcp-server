@@ -30,7 +30,7 @@ export interface RepoConfig {
 
 /** Default Noir version (tag) to use - only applies to noir-lang/noir repo */
 export const DEFAULT_NOIR_VERSION =
-  process.env.NOIR_DEFAULT_VERSION || "v1.0.0-beta.3";
+  process.env.NOIR_DEFAULT_VERSION || "v1.0.0-beta.18";
 
 /**
  * Base Noir repository configurations (without version tag)

@@ -32,6 +32,10 @@ export interface RepoConfig {
 export const DEFAULT_NOIR_VERSION =
   process.env.NOIR_DEFAULT_VERSION || "v1.0.0-beta.18";
 
+/** Default bb.js version (tag) to use - only applies to aztec-packages repo */
+export const DEFAULT_BB_VERSION =
+  process.env.BB_DEFAULT_VERSION || "v3.0.0-nightly.20260102";
+
 /**
  * Base Noir repository configurations (without version tag)
  */
@@ -121,6 +125,16 @@ const BASE_REPOS: Omit<RepoConfig, "tag">[] = [
     category: "libraries",
     searchPatterns: { code: ["*.nr"] },
   },
+  {
+    name: "bb.js",
+    url: "https://github.com/AztecProtocol/aztec-packages",
+    branch: "next",
+    sparse: ["barretenberg/ts"],
+    description:
+      "Aztec Barretenberg TypeScript/JavaScript bindings for proving backends",
+    category: "libraries",
+    searchPatterns: { code: ["*.ts", "*.js"] },
+  },
 
   // --- Reference ---
   {
@@ -143,8 +157,12 @@ export function getNoirRepos(version?: string): RepoConfig[] {
 
   return BASE_REPOS.map((repo) => ({
     ...repo,
-    // Only apply version tag to the main noir repo
-    tag: repo.name === "noir" ? tag : undefined,
+    tag:
+      repo.name === "noir"
+        ? tag
+        : repo.name === "bb.js"
+          ? DEFAULT_BB_VERSION
+          : undefined,
   }));
 }
 

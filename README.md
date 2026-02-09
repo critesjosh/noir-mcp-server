@@ -7,7 +7,7 @@ MCP server for Noir development — clones and searches Noir documentation, stan
 ### Claude Code
 
 ```bash
-claude mcp add noir-mcp -- npx noir-mcp-server
+claude mcp add noir-mcp -- npx noir-mcp-server@latest
 ```
 
 ### Claude Desktop / Cursor / Windsurf
@@ -19,7 +19,7 @@ Add to your MCP config file (e.g. `~/.claude/mcp.json`, `claude_desktop_config.j
   "mcpServers": {
     "noir": {
       "command": "npx",
-      "args": ["noir-mcp-server"]
+      "args": ["noir-mcp-server@latest"]
     }
   }
 }

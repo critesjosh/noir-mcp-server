@@ -239,11 +239,11 @@ export function findExample(name: string): FileInfo | null {
  * Escape a string for safe use inside double quotes in a shell command.
  * Preserves regex syntax (|, *, +, etc.) while preventing shell injection.
  */
-function escapeShell(str: string): string {
+export function escapeShell(str: string): string {
   return str.replace(/["$`\\!]/g, "\\$&");
 }
 
-function parseRgOutput(output: string, maxResults: number): SearchResult[] {
+export function parseRgOutput(output: string, maxResults: number): SearchResult[] {
   const results: SearchResult[] = [];
   const lines = output.split("\n").filter(Boolean);
 
@@ -268,7 +268,7 @@ function parseRgOutput(output: string, maxResults: number): SearchResult[] {
   return results;
 }
 
-function manualSearch(
+export function manualSearch(
   query: string,
   searchPath: string,
   filePattern: string,
@@ -327,7 +327,7 @@ function manualSearch(
   return results;
 }
 
-function findCircuits(basePath: string, repoName: string): FileInfo[] {
+export function findCircuits(basePath: string, repoName: string): FileInfo[] {
   const circuits: FileInfo[] = [];
 
   try {

@@ -1,6 +1,6 @@
 {
   "name": "noir-mcp-server",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "MCP server for Noir development - clones and searches Noir documentation, stdlib, and examples",
   "type": "module",
   "main": "dist/index.js",
@@ -12,8 +12,10 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc --watch",
-    "prepublishOnly": "npm run build",
-    "sync-bb": "node sync-bb-version.mjs"
+    "prepublishOnly": "npm test && npm run build",
+    "sync-bb": "node sync-bb-version.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [
     "noir",
@@ -31,12 +33,13 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "simple-git": "^3.27.0",
-    "globby": "^14.0.2"
+    "globby": "^14.0.2",
+    "simple-git": "^3.27.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=18.0.0"

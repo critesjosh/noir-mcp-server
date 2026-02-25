@@ -13,7 +13,7 @@ import {
 describe("repos/config", () => {
   describe("BASE_REPOS via NOIR_REPOS", () => {
     it("has the expected number of repos", () => {
-      expect(NOIR_REPOS.length).toBe(11);
+      expect(NOIR_REPOS.length).toBe(12);
     });
 
     it("has unique repo names", () => {

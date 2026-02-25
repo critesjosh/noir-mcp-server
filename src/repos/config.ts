@@ -109,6 +109,14 @@ const BASE_REPOS: Omit<RepoConfig, "tag">[] = [
     searchPatterns: { code: ["*.nr"] },
   },
   {
+    name: "poseidon",
+    url: "https://github.com/noir-lang/poseidon",
+    branch: "master",
+    description: "Poseidon hash function implementation for Noir",
+    category: "libraries",
+    searchPatterns: { code: ["*.nr"] },
+  },
+  {
     name: "sparse_array",
     url: "https://github.com/noir-lang/sparse_array",
     branch: "master",

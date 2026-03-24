@@ -30,11 +30,11 @@ export interface RepoConfig {
 
 /** Default Noir version (tag) to use - only applies to noir-lang/noir repo */
 export const DEFAULT_NOIR_VERSION =
-  process.env.NOIR_DEFAULT_VERSION || "v1.0.0-beta.18";
+  process.env.NOIR_DEFAULT_VERSION || "v1.0.0-beta.19";
 
 /** Default bb.js version (tag) to use - only applies to aztec-packages repo */
 export const DEFAULT_BB_VERSION =
-  process.env.BB_DEFAULT_VERSION || "v3.0.0-nightly.20260102";
+  process.env.BB_DEFAULT_VERSION || "v4.0.0-nightly.20260120";
 
 /**
  * Base Noir repository configurations (without version tag)
